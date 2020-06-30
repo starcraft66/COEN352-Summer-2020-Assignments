@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'co.tdude'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClassName = "co.tdude.COEN352Tutorial1.Main"
+}
+
+run {
+    standardInput = System.in
+}
