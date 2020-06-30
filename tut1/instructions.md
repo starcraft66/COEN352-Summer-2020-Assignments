@@ -1,0 +1,3 @@
+# Compulsory Exercise on Tutorial 1
+
+Write a Java Program that calculates the factorial function by accepting parameters of N from command line user input. Measure the Mme elapsed to run the function by changing the value of N.  Try to observe and analyze if the Mme  T and value N has a linear relation. (You can collect the data and try the linear fit. Excel has the function, or you can try to directly do it in Java)
