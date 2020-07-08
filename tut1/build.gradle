@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'idea'
 }
 
 group 'co.tdude'
@@ -16,4 +17,9 @@ application {
 
 run {
     standardInput = System.in
+}
+
+dependencies {
+    compile group: 'com.xeiam.xchart', name: 'xchart', version: '2.5.1'
+    compile group: 'de.erichseifert.vectorgraphics2d', name: 'VectorGraphics2D', version: '0.13'
 }
