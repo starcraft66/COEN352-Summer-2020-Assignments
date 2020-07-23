@@ -37,17 +37,14 @@ public class SingleLinkedList<E> implements ADTLList<E> {
         n.setData(item);
         n.setNext(null);
         if (this.tail != null) {
-            System.out.println("tail null, setting next to " + ((KVpair<Integer, String>) n.getData()).value());
             this.tail.setNext(n);
         }
         this.tail = n;
         if (this.head == null) {
-            System.out.println("Setting head");
             this.head = n;
         }
         this.size++;
         if (this.curr == null) {
-            System.out.println("Setting curr");
             this.curr = this.head;
         }
     }

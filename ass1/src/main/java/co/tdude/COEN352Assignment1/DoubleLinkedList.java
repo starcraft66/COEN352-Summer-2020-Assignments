@@ -9,6 +9,7 @@ public class DoubleLinkedList<E> implements ADTLList<E> {
 
     @Override
     public void clear() {
+        this.curr = null;
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -43,12 +44,15 @@ public class DoubleLinkedList<E> implements ADTLList<E> {
         this.size++;
         if (this.curr == null) {
             this.curr = this.head;
+        } else {
+            this.curr = n;
         }
     }
 
     @Override
     public E remove() {
         if (this.curr == null) {
+            System.out.println("curr is null");
             return null;
         }
         if (this.curr == this.head) {
@@ -62,7 +66,10 @@ public class DoubleLinkedList<E> implements ADTLList<E> {
             this.curr = this.curr.getNext();
             this.curr.setPrev(copy.getPrev());
         } else {
-            this.tail.getPrev().setNext(null);
+            this.tail = this.tail.getPrev();
+            if (this.tail != null) {
+                this.tail.setNext(null);
+            }
         }
         this.size--;
         return copy.getData();
@@ -75,6 +82,7 @@ public class DoubleLinkedList<E> implements ADTLList<E> {
 
     @Override
     public void moveToEnd() {
+        this.moveToStart();
         while (this.curr.getNext() != null) {
             this.curr = this.curr.getNext();
         }
