@@ -57,11 +57,67 @@ public class WarehouseInventory {
 
 
         try {
+            // Part 2
             System.out.println(Arrays.toString(wi.invDict.createDesendingIndex()));
+
+            // Part 3
+            // copy the dict
+            DLLDictionary<String, Inventory> copy = new DLLDictionary<>(wi.invDict);
+            Inventory[] unsortedarr = new Inventory[copy.size()];
+            for (int i = 0; i < unsortedarr.length; i++) {
+                unsortedarr[i] = copy.removeAny();
+            }
+            heapsortinv(unsortedarr);
+            System.out.println(Arrays.toString(unsortedarr));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
+    }
+
+    public static void heapsortinv(Inventory[] arr)
+    {
+        int n = arr.length;
+
+        // Build heap (rearrange array)
+        for (int i = n / 2 - 1; i >= 0; i--)
+            maxHeapify(arr, n, i);
+
+        for (int i=n-1; i>0; i--)
+        {
+            // Move current root to end
+            Inventory temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            maxHeapify(arr, i, 0);
+        }
+    }
+
+    public static void maxHeapify(Inventory[] arr, int n, int i)
+    {
+        int largest = i; // Initialize largest as root
+        int l = 2*i + 1; // left = 2*i + 1
+        int r = 2*i + 2; // right = 2*i + 2
+
+        // If left child is smaller than root
+        if (l < n && arr[l].getInventoryValue() < arr[largest].getInventoryValue())
+            largest = l;
+
+        // If right child is smaller than largest so far
+        if (r < n && arr[r].getInventoryValue() < arr[largest].getInventoryValue())
+            largest = r;
+
+        // If largest is not root
+        if (largest != i)
+        {
+            Inventory swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            // Recursively maxHeapify the affected sub-tree
+            maxHeapify(arr, n, largest);
+        }
     }
 }

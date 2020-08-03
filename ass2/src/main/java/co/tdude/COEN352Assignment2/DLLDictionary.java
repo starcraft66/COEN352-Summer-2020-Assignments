@@ -15,6 +15,10 @@ public class DLLDictionary<Key, E extends Comparable<E>> implements ADTDictionar
         list = new DoubleLinkedList<>();
     }
 
+    public DLLDictionary(DLLDictionary d) {
+        this.list = d.list;
+    }
+
     /**
      * Reinitialize
      */

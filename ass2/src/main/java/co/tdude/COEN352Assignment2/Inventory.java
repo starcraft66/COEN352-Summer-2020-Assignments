@@ -103,4 +103,19 @@ public class Inventory implements Comparable<Inventory> {
     public int compareTo(Inventory o) {
         return (int) (o.getInventoryValue() - this.getInventoryValue());
     }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "sku='" + sku + '\'' +
+                ", description='" + description + '\'' +
+                ", bin='" + bin + '\'' +
+                ", location='" + location + '\'' +
+                ", unit='" + unit + '\'' +
+                ", qty=" + qty +
+                ", reorderQty=" + reorderQty +
+                ", cost=" + cost +
+                ", reorder=" + reorder +
+                '}';
+    }
 }
