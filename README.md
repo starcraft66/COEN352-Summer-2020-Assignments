@@ -12,8 +12,4 @@ All of the code and PDF versions of the assignments are included in every subfol
 
 ---
 
-## Tutorials
-
-1. "Tutorial 1"
-
----
+This course ended up being really weird and shorted in the end because of COVID19 so things might be missing.
